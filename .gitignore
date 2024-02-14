@@ -1,4 +1,5 @@
 test_user_accessKeys.csv
+.DS_Store
 
 aws-lambda-intro/src/__pycache__
 
