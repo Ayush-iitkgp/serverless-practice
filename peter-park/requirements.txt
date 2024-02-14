@@ -1,0 +1,6 @@
+iniconfig==2.0.0
+packaging==23.2
+pillow==10.2.0
+pluggy==1.4.0
+pytesseract==0.3.10
+pytest==8.0.0

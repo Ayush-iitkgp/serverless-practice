@@ -1,0 +1,36 @@
+service: ayush-ki-service
+useDotenv: true
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.9
+  region: 'eu-central-1'
+  apiGateway:
+    apiKeys:
+      - test-api-key
+
+functions:
+  first-function:
+    # handler: src/main.handler
+    image: ${env:IMAGE_REPO_URI}
+    memorySize: 128
+    timeout: 30
+    events:
+      - http:
+          method: GET
+          path: /
+          private: true
+
+  # create-user:
+  #   # handler: src/api/create-user.handler
+  #   image: ${env:IMAGE_REPO_URI}
+  #   memorySize: 128
+  #   timeout: 30
+  #   events:
+  #     - http:
+  #         method: POST
+  #         path: /register
+  #         # Private for api key
+  #         private: true

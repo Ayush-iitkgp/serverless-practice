@@ -1,0 +1,15 @@
+service: aws-python-http-api-project
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.11
+
+functions:
+  solution-3-serverless:
+    # handler: handler.hello
+    image: ${env:IMAGE_REPO_URI}
+    events:
+      - httpApi:
+          path: /
+          method: get

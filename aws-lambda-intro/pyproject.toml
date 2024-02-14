@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "aws-lambda-intro"
+version = "0.1.0"
+description = ""
+authors = ["Ayush Pandey <ayush.pandey@tier.app>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.109.2"
+mangum = "^0.17.0"
+
+
+[tool.poetry.group.dev.dependencies]
+uvicorn = "^0.27.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

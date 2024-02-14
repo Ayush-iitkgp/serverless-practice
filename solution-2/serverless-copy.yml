@@ -1,0 +1,43 @@
+service: ayush-ki-service
+
+frameworkVersion: '3'
+
+plugins:
+  - serverless-python-requirements
+
+provider:
+  name: aws
+  runtime: python3.9
+  region: ${env:AWS_REGION, 'eu-central-1'}
+  apiGateway:
+    apiKeys:
+      - test-api-key
+  
+custom:
+  pythonRequirements:
+    zip: true
+
+exclude: 
+  - node_modules
+
+functions:
+  first-function:
+    handler: src/main.handler
+    memorySize: 128
+    timeout: 30
+    events:
+      - http:
+          method: GET
+          path: /
+          private: true
+
+  create-user:
+    handler: src/api/create-user.handler
+    memorySize: 128
+    timeout: 30
+    events:
+      - http:
+          method: POST
+          path: /register
+          # Private for api key
+          private: true
